@@ -1,0 +1,331 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+% This is a LaTex template using the "letter" class, written by Dr. Lu Chen.
+% My email: lu.chen@me.com
+
+\label{LDI}
+% LaTex Document Identifier (LDI):
+\def\projectname{ARDS Registry}
+\def\doctype{Article}
+\def\docnumber{001}
+\def\LDI{\projectname~\doctype\docnumber}
+
+
+\label{doc:preamble}
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+%%  HYPERTEXT
+\usepackage[hidelinks]{hyperref} % hypertext marks
+\usepackage{ifthen,float}
+
+\label{biblatex settings}
+%% Bibliography
+%\usepackage{cite} %for BibTe
+\usepackage[style=nejm,backend=biber]{biblatex}
+
+%\usepackage[style=numeric-comp,%
+%            minnames=3, maxnames=6,%
+%            terseinits=true,%
+%            sorting=none,%
+%            firstinits=true]{biblatex}
+%
+%
+%%Name-scheme in thebibliography
+%\DeclareNameAlias{default}{last-first}
+%
+%\renewcommand*{\bibnamedelimd}{}
+%%no bracktes in thebibliography
+%\DeclareFieldFormat{labelnumberwidth}{#1}
+%%no pp
+%\DeclareFieldFormat{pages}{#1}
+%%no In by journal name:
+%\newbibmacro*{in:}{}
+%%% ------------
+
+\addbibresource{VILI_Study01_Review.bib}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\renewcommand\thefootnote{\fnsymbol{footnote}}
+
+%%% SECTION TITLE APPEARANCE
+%\usepackage{sectsty}
+%\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% enumerate style
+\usepackage{enumitem}
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+%%% END Article customizations
+\label{Definitions}
+\def\Flow{$\rm{\dot{V}}$}
+\def\V{$\rm{V}$}
+\def\dV{$\rm{\Delta V}$}
+\def\Vt{$\rm{V_T}$}
+\def\VE{$\rm{\dot{V}_E}$}
+\def\P{$\rm{P}$}
+\def\Paw{$\rm{P_{aw}}$}
+\def\Pes{$\rm{P_{es}}$}
+\def\Pga{$\rm{P_{ga}}$}
+\def\Ptp{$\rm{P_{tp}}$}
+\def\Pdi{$\rm{P_{di}}$}
+\def\Pplat{$\rm{P_{plat}}$}
+\def\Ppeak{$\rm{P_{peak}}$}
+\def\PEEPtot{$\rm{PEEP_{tot}}$}
+\def\PEEPi{$\rm{PEEP_{i}}$}
+
+\def\E{$\rm{E}$}
+\def\Ers{$\rm{E_{rs}}$}
+\def\El{$\rm{E_{L}}$}
+\def\Ecw{$\rm{E_{cw}}$}
+\def\R{$\rm{R}$}
+\def\Rrs{$\rm{R_{rs}}$}
+\def\Rint{$\rm{R_{int}}$}
+\def\Rdel{$\rm{\Delta R}$}
+\def\Rl{$\rm{R_{L}}$}
+\def\Rcw{$\rm{R_{cw}}$}
+
+\label{Equations}
+\def\eqofmo{P_{appl}+P_{mus}=EV+R\dot{V}+I\ddot{V}}
+\def\eqofptp{P_{tp}=P_{aw}-P_{es}}
+%%% The "real" document content comes below...
+
+\begin{document}
+
+\begin{center}
+\textbf{\LARGE ARDS Registry Project\\[0.2cm]}
+%\textbf{\LARGE The ARDS Registry Project}\\[0.5cm]
+\textsc{Lu Chen, Kerri Porretta, and Laurent Brochard\footnote{Responsible Investigator, St. Michael's Hospital, University of Toronto. Email: brochardl@smh.ca} }
+\end{center}
+\hrule
+
+%\label{Abstract}
+%%% \renewcommand{\abstractname}{Study Summary} % %Active to rename "Abstract" to "Study Summary"
+%\begin{abstract}
+%\hspace{-2em} %remove default horizontal space added by abstrat
+%\emph{\textbf{Rationale}}: Microvascular injury, inflammation, and coagulation play critical roles in the pathogenesis of acute lung injury (ALI). Plasma protein C levels are decreased in patients with acute lung injury and
+%are associated with higher mortality and fewer ventilator-free days.\\
+%\emph{\textbf{Objectives}}: To test the efficacy of activated protein C (APC) \ as\parencite{Talmor2008}
+%a therapy for patients with ALI.\\
+%\emph{\textbf{Methods}}: Eligible subjects were critically ill patients who met the
+%American/European consensus criteria for ALI. Patients with severe
+%sepsis and an APACHE II score of 25 or more were excluded. Participants
+%were randomized to receive APC (24 mg/kg/h for 96 h) or
+%placebo in a double-blind fashion within 72 hours of the onset of ALI.
+%The primary endpoint was ventilator-free days.\\
+%\emph{\textbf{Measurements and Main Results}}: APC increased plasma protein C
+%levels (P50.002) and decreased pulmonary dead space fraction (P5
+%0.02). However, there was no statistically significant difference
+%between patients receiving placebo (n 5 38) or APC (n 5 37) in the
+%number of ventilator-free days (median [25–75% interquartile
+%range]: 19 [0–24] vs. 19 [14–22], respectively; P 5 0.78) or in 60-day
+%mortality (5/38 vs. 5/37 patients, respectively; P 5 1.0). There were
+%no differences in the number of bleeding events between the two
+%groups.\\
+%\emph{\textbf{Conclusions}}: APC did not improve outcomes from ALI. The results of
+%this trial do not support a large clinical trial of APC for ALI in the
+%absence of severe sepsis and high disease severity.
+%Clinical trial registered with www.clinicaltrials.gov (NCT)
+%\end{abstract}
+%%%===================================================================
+
+%% Beginning of content =============================================
+\label{Content}
+\section{Oral Introduction}
+%In the past ten years, several large observational studies described the incidence, ventilation management and outcomes of ARDS in ICU. The definition of ARDS itself has recently updated by the "ARDS Definition Task Force"\parencite{Ranieri2012}. Despite the fact that this syndrome is characterized by major physiological abnormalities, 
+%Limited data on conventional respiratory mechanics have been collected in the previous studies and none has really investigated the lung and chest wall mechanics of ARDS patients.
+%Airway Pressure-based respiratory mechanics can serve to aid the judgement of clinicians when monitoring mechanical ventilation and making important decisions in respiratory care. However, arbitrary limiting airway \Pplat~to $30~\rm{cmH_2O}$ may also be unnecessary to prevent VILI in patients with low chest wall compliance, or even harmful.
+%
+%Using esophageal balloon technique has been applied in physiological studies for many decades\parencite{Milic-Emili1964}. Bedside monitoring \Pes~and \Ptp~guided ventilatory strategies have been introduced into clinical practice by Talmor et.al., monitoring \Ptp~represents an opportunity to individualize the interpretation of lung mechanics and guide development of a ventilator strategy tailored to the specific needs of a given patient.
+%
+%Despite voluminous data showing its usefulness in critically ill patients, esophageal pressure is still seldom used in the clinical setting. This is partially due to technical issues, such as the insertion and proper placement of an esophageal catheter, the feasibility and time-cost of obtaining accurate measurements and calculations, and the interpretation of the measurements\parencite{Akoumianaki2014}. Another big obstacle for implementation of this technique is, that a majority of clinicians are not aware of the meanings and usefulness of monitoring esophageal pressure. 
+%In the context of LUNG-SAFE study, we identified 13 ARDS patients in 41 ventilated patients during a four weeks investigation in the MSICU at SMH. None of them had an esophageal catheter inserted.
+
+%We therefore propose a structured quality improvement (QI) project, to systematically measure and record respiratory mechanics in patients having criteria for ARDS. These data will form the basis of a registry for ARDS.
+
+\section{Objectives}
+ \subsection{QI Program}
+%To introduce a multifaceted QI process constituted by performing a systematic set of measurements for patients being recognized as ARDS after a training package. Goals:
+\begin{enumerate}[label=(\alph*)]
+\item Facilitate integration of respiratory mechanics monitoring in ventilatory management.
+\item Advance the clinicians' understanding of \Pes~monitoring and lung mechanics.
+%\item Facilitate the application of Berlin definition for identification and classification.
+\item Comparison with retrospective data and/or regular audit can be envisaged after 6 months.
+\end{enumerate}
+
+ \subsection{Registry Protocol}
+%A registry will be conducted, based on more data, to:
+\begin{enumerate}[label=(\alph*)]
+ \item Investigate the epidemiology of physiological abnormalities in ARDS patients, and whether these variables are correlated with the severity of ARDS (Berlin definition).
+ \item Investigate the ratio of chest wall elastance to respiratory elastance in ARDS patients, and compare with predicted values and previously reported values in physiological studies.
+\item Describe the relationship between lung recruitability and PEEP responsiveness.
+ 
+ 
+% \item Measure and calculate the \Paw-based respiratory mechanics.
+% \item Measure and calculate the \Pes-based lung and chest wall mechanics.
+% \item Assess the response to PEEP.
+% \item Assess the lung recruitability using a simplified bedside evaluation method.
+\end{enumerate}
+ 
+
+
+
+\section{Design}
+A \textit{multicenter} registry project merged with a prospective quality improvement program.
+
+\section{Settings and Patients}
+\subsection{ICU recruitment and participation}
+Participating ICUs will be requested to recruit for 12 months for registry study after which a first evaluation will be performed. 
+
+\subsection{Inclusion Criteria}
+All patients admitted to the participating ICUs receiving invasive ventilation will be screened by RTs, the patients who met the Berlin definition for ARDS will be included.
+\subsection{Exclusion Criteria}
+In cases of the situation below, we will discuss case by case with the attending physician to determine whether the patient would be excluded.
+\begin{enumerate}[label=(\alph*)]
+%\item Age $ < $ 16 years.
+%\item Pregnant woman.
+\item Severe hemodynamic instability: $ >30\% $ variation of mean arterial pressure and/or heart rate (HR) in the last 2 hours; or need for high dose of vasopressor (higher than 1 $\rm{\mu g/kg/min}$ of norepinephrine).
+\item Patients who present a known esophageal problem, active upper gastrointestinal bleeding or any other contraindication to the insertion of a gastric tube.
+\end{enumerate}
+
+%\subsection{Informed Consent}
+\section{Study Procedures}
+
+\subsection{QI Protocol}
+%\subsubsection{Retrospective Survey}
+%\begin{enumerate}[label=(\alph*)]
+%\item Retrospective analysis the routine ventilatory management status in ICUs.
+%\item A survey with questionnaires to evaluate clinicians' understanding and major problems of implementation and explanation of Pes monitoring.
+%\end{enumerate}
+
+\subsubsection{QI program}
+%A structured QI program will be implemented for changing practice, using a “4Es” framework (engage, educate, execute, and evaluate)\parencite{Pronovost2008}.
+
+\begin{enumerate}[label=(\alph*)]
+\item \textit{Engaging.} A QI team will be drawn from respiratory therapists (RTs) and physicians in the participating ICUs.
+\item \textit{Educating. }A systematic training package will be introduced to clinicians (RTs and MDs) by the QI team, including lectures about the background physiology knowledge, hands-on sessions, video tutorials, and case discussions.
+\item \textit{Executing.} A registry protocol based bedside practice will be conducted for a 6-month period.
+\item \textit{Evaluating.} After execution, the QI team continued meeting monthly to identify and resolve barriers to successful implementation.
+\end{enumerate}
+
+\subsubsection{Evaluation of the QI program}
+A comparison of application status of respiratory mechanics monitoring and ventilatory strategy, before and after implementation of the QI program will be conducted.
+% Data for the control (before) period was obtained from a pre-existing, multisite prospective cohort study of ventilated severe respiratory failure patients conducted over a 4-week period (LUNG-SAFE study). Data for the QI (after) period will be prospectively collected as part of the registry project for an additional 6-month period.
+
+
+
+\subsection{Registry Protocol}
+When patient is enrolled, the investigator will follow a standardized approach on the form to measure the patient within 24 hours of meeting ARDS criteria. The measurements could be repeated in the following days if needed, but is not mandatory for the study. There are four parts in the standardized procedures:
+
+\subsubsection{Measure the \Paw-based respiratory mechanics}
+%%If the patient's $ \rm{PaO_2/FiO_2} $ ratio $\leq$ 200 and an esophageal catheter is consider to be placed, the investigator should keep patient's spontaneous effort as far as possible, in order to confirm the balloon's position (see Section 5.1.2) before measure the respiratory mechanics. Otherwise, they will measure the patient in accordance with the steps below:
+%
+%\begin{enumerate}[label=(\alph*)]
+%\item Eliminate the patient's spontaneous breathing as far as possible by using sedation and/or paralysis.\footnote{If it's not appropriate to use, an inspiratory pause time will be set to measure, instead of manual occlusion.}
+%\item Set the ventilator mode to volume control (VCV), with a tidal volume (\Vt) close to 6ml/kg of predicted body weight (PBW), and a constant flow at 60 L/min\footnote{Square flow wave, if a Drager ventilator is used, the Autoflow function in IPPV mode must be turned off.}. Respiratory rate should be set to  maintain minute ventilation (\VE) as before. PEEP will be kept as same as previous clinical setting.
+%\item  Do an end-expiratory occlusion by holding the corresponding button on the ventilator for 1-2 secs. The absence of spontaneous effort will be confirmed by \Paw (no negative swing during occlusion). Then record the \Paw~at end-expiratory occlusion, namely, the total PEEP (\PEEPtot).
+%\item Do an end-inspiratory occlusion by holding the corresponding button on the ventilator for 1-2 secs, record the peak airway pressure (\Ppeak) and \Pplat~ from the ventilator. If the patient still has spontaneous effort during measurement and sedation and/or paralysis are not in use due to clinical consideration, a \Pplat~obtained by set an inspiratory pause time at 0.3-0.5 secs will also be accepted.
+%\item The intrinsic PEEP, elastance, compliance and resistance of respiratory system will be automatically calculated by the form.
+%\end{enumerate}
+
+\subsubsection{Measure the \Pes-based lung and chest wall mechanics (if P/F ratio $\leq$ 200)}
+For all moderate and severe ARDS patients, i.e. $ \rm{PaO_2/FiO_2} $ ratio $\leq$ 200, an esophageal catheter will be considered to be placed, unless there is a contradiction for placing. The clinician in charge will make the final decision for placement of catheter. 
+%
+%\begin{enumerate}[label=(\alph*)]
+%\item All patients will be measured in a semirecumbent position as far as possible, with bed's head at 30-45 degrees.
+%\item If the patient has spontaneous breathing, position of esophageal balloon will be confirmed by using an occlusion test\parencite{Baydur1982}. Namely, compare the ratio of changes in \Paw~and \Pes~during an end-expiratory occlusion. The ideal $\Delta$\Pes/$\Delta$\Paw~ratio is between 0.8 and 1.2.
+%\item If the patient was already deeply sedated or paralysed without spontaneous effort, appropriate positioning of the catheter will be checked in a similar maneuver by manually compressing patient's chest wall doling an occlusion.
+%%Another opition is Talmor's method, although its reliability and validity need further investigate.
+%\item After the catheter's position is confirmed, the patient's spontaneous breathing will be eliminated by using sedation and/or paralysis, in order to measure the passive mechanisms. \Pes~swing should be positive during passive ventilation.
+%\item Do an end-expiratory occlusion by holding the corresponding button on the ventilator for 1-2 secs. The absence of spontaneous effort will be confirmed again. Then record the \Paw~and \Pes~at end-expiratory occlusion.
+%\item Do an end-inspiratory occlusion by holding the corresponding button on the ventilator for 1-2 secs, record the airway \Ppeak, \Pplat~and the \Pes~at end-inspiratory occlusion.
+%\item The  \Ptp~ at end-expiratory and end-inspiratory occlusions, the elastance and compliance of lung and chest wall, the \El/\Ers~ratio, as well as the physiological variables of respiratory system (See Section 5.2.1) will be automatically calculated by the form.
+%\end{enumerate}
+
+\subsubsection{Assess patient's response to PEEP}
+
+%\begin{enumerate}[label=(\alph*)]
+%\item	Set PEEP to 8-10 $\rm{cmH_2O}$ and keep $\rm{FiO_2}$ to maintain $ \rm{SpO_2} $ 92-98 \%. Set a inspiratory pause at 0.3 secs. After 15 mins, record airway \Pplat,~ \Pes~at the end-inspiration and end-inspiration, respectively. An ABG and blood pressure will be obtained and recorded.
+%\item	Increase PEEP to $15~\rm{cmH_2O}$ and keep other settings unchanged. After 15 mins, repeat the measurement as above.
+%\end{enumerate}
+
+\subsubsection{Assess lung recruitability using a simplified bedside monitoring maneuver}
+This simplified maneuver for bedside estimate recruitability will be measured in one breath cycle\parencite{Dellamonica2011}:
+\begin{enumerate}[label=(\alph*)]
+\item	Set respiratory rate to 10/min, in order to have long enough expiration. Other settings remain unchanged as previous step.
+\item	As soon as possible, decrease PEEP from $\rm{15~to~5~cmH_2O}$ at the expiration period, then record the inspiratory \Vt~and expiratory \Vt~of the next breath. After measurement, PEEP will be set back to clinical setting.
+\item	The derecruited volume will be automatically calculated by the form.
+\end{enumerate}
+
+
+
+
+
+\section{Data Collection}
+
+\subsection{Registry Section}
+We developed an electronic form in order to guide the clinician for measurements and calculate the mechanics automatically to improve feasibility of these measurements. The main features of the form include: 
+\begin{enumerate}[label=(\alph*)]
+\item Can be distributed and used on any computers at hospitals, with or without network.
+\item Calculate the physiological variables and respiratory/lung/chest wall mechanics automatically.
+\item Validate the user's input errors, missing and illogical values
+\item Generate a \textquotedblleft ARDS Pulmonary Function Test\textquotedblright report for clinical use.
+\item Can be imported directly from the paper edition to an electronic database, avoiding manual entry errors.
+\end{enumerate}
+
+%The investigator will follow the instructions and fill the registry form during measurements. Each site has a research coordinator who will be responsible for collecting the data forms for the registry. All data collected in the registry protocol (see details in Supplement) will be then stored in our database which will be integrated with a pre-existing multicenter database - iCore. None of the patient's privacy information will be collected or stored.
+\section{Questions for CRIP}
+\begin{enumerate}[label=(\alph*)]
+\item Relation between QI and registry/research questions? Is it clear enough?
+\item Is the need for sedation and or paralysis for measurements a barrier for QI implementation? Could it create a selection bias for the registry? Same for esophageal pressure measurements by RTs.
+\item One objective of the study is to test the usefulness of Pes measurements for assessing chest wall (and the ratio of chest wall elastance to respiratory system elastance) We propose: i) to compare to predicted values, ii) see whether it can be predicted from ARDS severity, iii) see whether it can be predicted from clinical observation (BMI, ascites, chest wall deformity, etc.).
+
+\end{enumerate}
+%\subsection{Sample Size}
+%The sample size was conservatively based on a
+%moderate reliability correlation coefficient between
+%FLACC scores.
+
+%%\label{References}
+%%%\bibliographystyle{plaint}
+%%%\bibliography{VILI_Study01_Review}
+%%\printbibliography
+
+
+\end{document}
